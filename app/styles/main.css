@@ -1,0 +1,148 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+/* self */
+@font-face {font-family: bebasneue;src: url('../fonts/bebasneue.otf');}
+.focimek{
+	font-family:bebasneue;
+	font-size:3em;
+	color:white;
+}
+.focimek .glyphicon{font-size:0.8em;margin-top:1%;}
+.panel a{text-decoration:none;}
+.panel-group{margin-bottom:10px;}
+.piros{background-color:#ed1c24;}
+.kek{background-color:#0054a6;}
+.kek:hover{
+	background: #0054a6;
+	background: -moz-linear-gradient(left,  #0054a6 0%, #0cb4f2 19%, #0054a6 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#0054a6), color-stop(19%,#0cb4f2), color-stop(100%,#0054a6));
+	background: -webkit-linear-gradient(left,  #0054a6 0%,#0cb4f2 19%,#0054a6 100%);
+	background: -o-linear-gradient(left,  #0054a6 0%,#0cb4f2 19%,#0054a6 100%);
+	background: -ms-linear-gradient(left,  #0054a6 0%,#0cb4f2 19%,#0054a6 100%);
+	background: linear-gradient(to right,  #0054a6 0%,#0cb4f2 19%,#0054a6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0054a6', endColorstr='#0054a6',GradientType=1 );
+}
+.zold{background-color:#00903c;}
+.zold:hover{
+	background: #00903c;
+	background: -moz-linear-gradient(left,  #00903c 0%, #efef67 19%, #00903c 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#00903c), color-stop(19%,#efef67), color-stop(100%,#00903c));
+	background: -webkit-linear-gradient(left,  #00903c 0%,#efef67 19%,#00903c 100%);
+	background: -o-linear-gradient(left,  #00903c 0%,#efef67 19%,#00903c 100%);
+	background: -ms-linear-gradient(left,  #00903c 0%,#efef67 19%,#00903c 100%);
+	background: linear-gradient(to right,  #00903c 0%,#efef67 19%,#00903c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00903c', endColorstr='#00903c',GradientType=1 );
+}
+.narancs{background-color:#f26522;}
+.narancs:hover{
+	background: #f26522;
+	background: -moz-linear-gradient(left,  #f26522 0%, #efef67 19%, #f26522 99%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f26522), color-stop(19%,#efef67), color-stop(99%,#f26522));
+	background: -webkit-linear-gradient(left,  #f26522 0%,#efef67 19%,#f26522 99%);
+	background: -o-linear-gradient(left,  #f26522 0%,#efef67 19%,#f26522 99%);
+	background: -ms-linear-gradient(left,  #f26522 0%,#efef67 19%,#f26522 99%);
+	background: linear-gradient(to right,  #f26522 0%,#efef67 19%,#f26522 99%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f26522', endColorstr='#f26522',GradientType=1 );
+}
+.lila{background-color:#92278f;}
+.lila:hover{
+	background: #92278f;
+	background: -moz-linear-gradient(left,  #92278f 0%, #f2c83e 18%, #92278f 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#92278f), color-stop(18%,#f2c83e), color-stop(100%,#92278f));
+	background: -webkit-linear-gradient(left,  #92278f 0%,#f2c83e 18%,#92278f 100%);
+	background: -o-linear-gradient(left,  #92278f 0%,#f2c83e 18%,#92278f 100%);
+	background: -ms-linear-gradient(left,  #92278f 0%,#f2c83e 18%,#92278f 100%);
+	background: linear-gradient(to right,  #92278f 0%,#f2c83e 18%,#92278f 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#92278f', endColorstr='#92278f',GradientType=1 );
+}
+
+.thumbnail h3{margin:0;padding:0;text-align:center;}
+.thumbnail h4{text-align:center;}
