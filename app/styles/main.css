@@ -90,6 +90,10 @@ body {
 
 /* self */
 @font-face {font-family: bebasneue;src: url('../fonts/bebasneue.otf');}
+hr{margin:0px;padding:0px;}
+.thumbnail h3{font-size:22px;}
+.center{text-align:center;}
+.margin-padding{margin:0px;padding:0px;}
 .focimek{
 	font-family:bebasneue;
 	font-size:3em;
@@ -146,3 +150,75 @@ body {
 
 .thumbnail h3{margin:0;padding:0;text-align:center;}
 .thumbnail h4{text-align:center;}
+
+
+#work-hdagency{display:block;}
+#work-zms{display:block;}
+
+/*Tanulmányok*/
+.caption{border:1px solid #eee;}
+#collapseTwo a{
+	color:#030;
+}
+#collapseTwo hr{ margin: 1px 0px;}
+.szak{
+	color:#00903c;
+}
+.one {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+.one:after {
+    padding-top: 100.00%;
+    display: block;
+    content: '';
+}
+.kossuth {
+	height:100%;
+	width:100%;
+    position: absolute;
+    background-image:url('../images/tanulmanyok/kossuth.png');
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+	-webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}	
+.kossuth:hover{
+    background-image:url('../images/tanulmanyok/kossuth2.png');
+}
+
+.foldes {
+	height:100%;
+	width:100%;
+    position: absolute;
+    background-image:url('../images/tanulmanyok/foldes.png');
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+	-webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.foldes:hover{
+    background-image:url('../images/tanulmanyok/foldes2.png');
+}	
+
+.corvinus {
+	height:100%;
+	width:100%;
+    position: absolute;
+    background-image:url('../images/tanulmanyok/corvinus.png');
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+	-webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.corvinus:hover{
+    background-image:url('../images/tanulmanyok/corvinus2.png');
+}
+	

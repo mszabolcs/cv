@@ -1,0 +1,42 @@
+.ui-tooltip {
+	display: block;
+	position: absolute;
+	border: 1px solid #D9D9D9;
+	font: 400 12px/12px Arial;
+	border-radius: 3px;
+	background-color: #fff;
+	top: -43px;
+	padding: 5px;
+	left: -9px;
+	text-align: center;
+	width: 50px;
+}
+.ui-tooltip strong {
+	display: block;
+	padding: 2px;
+}
+.noUi-connect{
+	background: #00903c;
+	background: -moz-linear-gradient(left,  #00903c 0%, #efef67 19%, #00903c 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#00903c), color-stop(19%,#efef67), color-stop(100%,#00903c));
+	background: -webkit-linear-gradient(left,  #00903c 0%,#efef67 19%,#00903c 100%);
+	background: -o-linear-gradient(left,  #00903c 0%,#efef67 19%,#00903c 100%);
+	background: -ms-linear-gradient(left,  #00903c 0%,#efef67 19%,#00903c 100%);
+	background: linear-gradient(to right,  #00903c 0%,#efef67 19%,#00903c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00903c', endColorstr='#00903c',GradientType=1 );
+}
+
+.fade-in {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}

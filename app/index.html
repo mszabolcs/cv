@@ -10,10 +10,13 @@
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
-        <!-- endbower -->
+        <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+        <link rel="stylesheet" href="../bower_components/nouislider/jquery.nouislider.css" />
+		<!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/MyNouislider.css">
         <!-- endbuild -->
     </head>
     <body>
@@ -51,9 +54,9 @@
 			<div class="row marketing">
                 <div class="col-xs-12">
 					<!-- Szakmai tapasztalat -->
-					<div class="panel-group" id="accordion">
+					<div class="panel-group" id="accordion1">
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-recog="szakma" onClick="openSection(this.getAttribute('data-recog'));">
+							<a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne" data-recog="szakma" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading kek">
 									<h4 class="panel-title focimek">
 										Szakmai tapasztalat:<span class="glyphicon glyphicon-chevron-down pull-right szakma"></span>
@@ -64,7 +67,7 @@
 								<div class="panel-body">
 									<div class="row marketing">
 										<div class="col-xs-12 col-sm-6">
-											<div class="thumbnail">
+											<div class="thumbnail animated bounceInLeft" id="work-hdagency">
 												<img data-src="holder.js/300x300" alt="...">
 												<div class="caption">
 													<h3><strong>HD Agency Kft.</strong></h3>
@@ -82,7 +85,7 @@
 											</div>
 										</div>
 										<div class="col-xs-12 col-sm-6">
-											<div class="thumbnail">
+											<div class="thumbnail animated bounceInRight" id="work-zms">
 												<img data-src="holder.js/300x300" alt="...">
 												<div class="caption">
 													<h3><strong>ZMS Pro-Ker Kft.</strong></h3>
@@ -106,9 +109,9 @@
 					</div><!-- End of Szakmai tapasztalat -->
 					
 					<!-- Tanulmányok -->
-					<div class="panel-group" id="accordion">
+					<div class="panel-group" id="accordion2">
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" data-recog="tanulmanyok" onClick="openSection(this.getAttribute('data-recog'));">
+							<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" data-recog="tanulmanyok" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading zold">
 									<h4 class="panel-title focimek">
 										Tanulmányok:<span class="glyphicon glyphicon-chevron-down pull-right tanulmanyok"></span>
@@ -117,16 +120,63 @@
 							</a>
 							<div id="collapseTwo" class="panel-collapse collapse">
 								<div class="panel-body">
-									dd
+								<!-- Slider -->
+									<div class="row marketing fade-in">
+										<div class="col-xs-10 col-xs-offset-1">
+											<div id="range-slider"></div>
+										</div>
+									</div><!-- End of Slider-->
+									<div class="row marketing">
+										<div class="col-xs-12 col-sm-4">
+											<div class="thumbnail animated bounceInDown kossuth-thumb" id="">
+												<div class="one">
+													<div class = "kossuth">
+													</div>	
+												</div>
+												<div class="caption">
+													<h3><strong><a href="">Kossuth Lajos Általános Iskola</a></strong></h3>
+													<hr/><h4><small>Sajószentpéter</small></h4>
+													<hr/><p class="center margin-padding"><b>1998-2006</b></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4">
+											<div class="thumbnail animated bounce foldes-thumb" id="">
+												<div class="one">
+													<div class = "foldes">
+													</div>	
+												</div>												<div class="caption">
+													<h3><strong><a href="">Földes Ferenc Gimnázium</a></strong></h3>
+													<hr/><h4><small>Miskolc</small></h4>													
+													<hr/><p class="center margin-padding"><b>2006-2010</b></p>
+													<hr/><p  class="center margin-padding szak">Informatika szak</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4">
+											<div class="thumbnail animated bounceInUp corvinus-thumb" id="">
+												<div class="one">
+													<div class = "corvinus">
+													</div>	
+												</div>												<div class="caption">
+													<h3><strong><a href="">Budapesti Corvinus Egyetem</a></strong></h3>
+													<hr/><h4><small>Budapest</small></h4>													
+													<hr/><p class="center margin-padding"><b>2010-2014</b></p>
+													<hr/><p  class="center margin-padding szak">Gazdaságinformatikus BSC képzés</p>
+												</div>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
 					</div><!-- End of Szakmai tapasztalat -->
 					
 					<!-- Nyelvtudás -->
-					<div class="panel-group" id="accordion">
+					<div class="panel-group" id="accordion3">
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" data-recog="nyelvtudas" onClick="openSection(this.getAttribute('data-recog'));">
+							<a data-toggle="collapse" data-parent="#accordion3" href="#collapse3" data-recog="nyelvtudas" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading narancs">
 									<h4 class="panel-title focimek">
 										Nyelvtudás:<span class="glyphicon glyphicon-chevron-down pull-right nyelvtudas"></span>
@@ -142,9 +192,9 @@
 					</div><!-- End of Nyelvtudás -->
 						
 					<!-- Készségek -->
-					<div class="panel-group" id="accordion">					
+					<div class="panel-group" id="accordion4">					
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse4" data-recog="skills" onClick="openSection(this.getAttribute('data-recog'));">
+							<a data-toggle="collapse" data-parent="#accordion4" href="#collapse4" data-recog="skills" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading lila">
 									<h4 class="panel-title focimek">
 										Készségek:<span class="glyphicon glyphicon-chevron-down pull-right skills"></span>
@@ -200,11 +250,14 @@
         <script src="../bower_components/bootstrap/js/tab.js"></script>
 		<!-- Holderjs -->
         <script src="../bower_components/holderjs/holder.js"></script>
+		<!-- noUiSlider -->
+        <script src="../bower_components/nouislider/jquery.nouislider.min.js"></script>
 
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
+		<script src="scripts/MyNouislider.js"></script>
         <!-- endbuild -->
 </body>
 </html>
