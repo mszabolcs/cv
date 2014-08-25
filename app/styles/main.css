@@ -156,6 +156,7 @@ hr{margin:0px;padding:0px;}
 
 #work-hdagency{display:block;}
 #work-zms{display:block;}
+.worky{background-image:url("../images/bg.png");}
 
 /*Tanulmányok*/
 .caption{border:1px solid #eee;}
