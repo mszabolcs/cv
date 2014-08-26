@@ -9,10 +9,10 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
         <link rel="stylesheet" href="../bower_components/nouislider/jquery.nouislider.css" />
-		<!-- endbower -->
+        <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
@@ -54,6 +54,9 @@
 						<div class="panel panel-default">
 							<a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
 								<div class="panel-heading kek">
+									<div class="header-icon pull-left">
+										<img src="images/icons/work.svg" style="height:32px; width:32px" alt="work icon">
+									</div>
 									<h4 class="panel-title focimek">
 										Szakmai tapasztalat:<span class="glyphicon glyphicon-chevron-down pull-right szakma"></span>
 									</h4>
@@ -65,15 +68,14 @@
 										<div class="col-xs-12 col-sm-6">
 											<div class="thumbnail animated bounceInLeft" id="work-hdagency">
 												<img src="images/szakmai/hdagencykft.png" alt="HD Marketing - Online marketing kereső ügynökség - SEO, PPC, Analytics">
-												<div class="caption">
+												<div class="caption w-same-h">
 													<h3><strong>HD Agency Kft.</strong></h3>
-													<h4><small>2014.márc. - 2014.máj.</small></h4>
-													<ul>
+													<h4><small>2014.márc. - 2014.máj.</small></h4><hr/>
+													<ul class="m-t-space">
 														<li>Google Adwords kampánykezelés</li>
 														<li>Google Analytics riporting és elemzés</li>
+														<li>Kulcsszó kutatás és elemzés</li>
 														<li>SEO</li>
-														<li>Youtube marketing</li>
-														<li>Facebook marketing</li>
 													</ul>
 												</div>
 											</div>
@@ -81,10 +83,10 @@
 										<div class="col-xs-12 col-sm-6">
 											<div class="thumbnail animated bounceInRight" id="work-zms">
 												<img src="images/szakmai/zmsprokerkft.png" alt="ZMS Pro-Ker Kft. - Kiváló ár-érték arányú kézzel készült fa bútorok.">
-												<div class="caption">
+												<div class="caption w-same-h">
 													<h3><strong>ZMS Pro-Ker Kft.</strong></h3>
-													<h4><small>2005 - jelenleg is</small></h4>													
-													<ul>
+													<h4><small>2005 - jelenleg is</small></h4><hr/>													
+													<ul class="m-t-space">
 														<li>Bútor kiskereskedelem</li>
 														<li>Weblap tervezése, kivitelezése és optimalizálása</li>
 														<li>Online Marketing</li>
@@ -106,6 +108,9 @@
 						<div class="panel panel-default">
 							<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
 								<div class="panel-heading zold">
+									<div class="header-icon pull-left">
+										<img src="images/icons/study.svg" style="height:32px; width:32px" alt="study icon">
+									</div>
 									<h4 class="panel-title focimek">
 										Tanulmányok:<span class="glyphicon glyphicon-chevron-down pull-right tanulmanyok"></span>
 									</h4>
@@ -170,6 +175,9 @@
 						<div class="panel panel-default">
 							<a data-toggle="collapse" data-parent="#accordion3" href="#collapse3">
 								<div class="panel-heading narancs">
+									<div class="header-icon pull-left">
+										<img src="images/icons/languages.svg" style="height:32px; width:32px" alt="languages icon">
+									</div>
 									<h4 class="panel-title focimek">
 										Nyelvtudás:<span class="glyphicon glyphicon-chevron-down pull-right nyelvtudas"></span>
 									</h4>
@@ -238,90 +246,123 @@
 						<div class="panel panel-default">
 							<a data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
 								<div class="panel-heading lila">
+									<div class="header-icon pull-left">
+										<img src="images/icons/skills.svg" style="height:32px; width:32px" alt="skills icon">
+									</div>
+
 									<h4 class="panel-title focimek">
 										Készségek:<span class="glyphicon glyphicon-chevron-down pull-right skills"></span>
 									</h4>
 								</div>
 							</a>
 							<div id="collapse4" class="panel-collapse collapse">
-								<div class="panel-body">
+								<div class="panel-body worky">
 									<div class="row">
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail animated fadeIn" id="">
+												<img src="images/keszsegek/office.png" alt="Microsoft Office, Excel, Word, Powerpoint, Access, Visio" id="office" data-recog="office" onMouseover="animateSkills(this.getAttribute('data-recog'));"/>
 												<div class="caption">
+												<h4>Microsoft Office</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
+														<li>Excel</li>
+														<li>Word</li>
+														<li>Powerpoint</li>
+														<li>Access</li>
+														<li>Visio</li>
 													</ul>
 												</div>
 											</div>
 										</div>
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail animated fadeIn" id="">
+												<img src="images/keszsegek/vstudio.png" alt="Microsoft Visual Studio C#" id="vstudio" data-recog="vstudio" onMouseover="animateSkills(this.getAttribute('data-recog'));"/>
 												<div class="caption">
+												<h4>MS Visual Studio C#</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
-													</ul>
+														<li>C# programnyelv ismerete</li>
+														<li>Alkalmazások készítése</li>
+													</ul>												
 												</div>
-											</div>										</div>
+											</div>										
+										</div>
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail animated fadeIn" id="">
+												<img src="images/keszsegek/photoshop.png" alt="Adobe Photoshop, képszerkesztés, webdesign, logo és arculat tervezés, reklámanyagok tervezése" id="aphotoshop" data-recog="aphotoshop" onMouseover="animateSkills(this.getAttribute('data-recog'));"/>
 												<div class="caption">
+												<h4>Adobe Photoshop</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
+														<li>Grafikák tervezése</li>
+														<li>Weboldalak tervezése</li>
+														<li>Logo tervezés</li>
+														<li>Arculattervezés</li>
+														<li>Reklámanyagok, plakátok</li>
 													</ul>
 												</div>
-											</div>										</div>
+											</div>										
+										</div>
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail  animated fadeIn" id="">
+												<img src="images/keszsegek/webfejlesztes.png" alt="Webfejlesztés, Front-end, Back-end, Full-stack, JavaScript, HTML5, CSS3, PHP, AJAX"/ id="webdev" data-recog="webdev" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
+												<h4>Webfejlesztés</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
+														<li>HTML/HTML5</li>
+														<li>CSS/CSS3</li>
+														<li>Javascript/Jquery/AJAX</li>
+														<li>PHP/MySQL</li>
 													</ul>
 												</div>
-											</div>										</div>
+											</div>										
+										</div>
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail  animated fadeIn" id="">
+												<img src="images/keszsegek/adatbaziskezeles.png" alt="Adatbázis kezelés, SQL, Access, Oracle"/ id="dbs" data-recog="dbs" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
+												<h4>Adatbázis kezelés</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
+														<li>SQL nyelv ismerete</li>
+														<li>MySQL/phpMyAdmin</li>
+														<li>Oracle SQL developer</li>
+														<li>Access/MS SQL Server</li>
 													</ul>
 												</div>
-											</div>										</div>
+											</div>										
+										</div>
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail  animated fadeIn" id="">
+												<img src="images/keszsegek/google.png" alt="Online Marketing, Google Adwords, Google Analytics, SEO, YouTube marketing, Facebook marketing"/ id="omarketing" data-recog="omarketing" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
+												<h4>Online marketing</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
+														<li>Google Adwords</li>
+														<li>Google Analytics</li>
+														<li>SEO</li>
+														<li>YouTube marketing</li>
+														<li>Facebook marketing</li>
 													</ul>
 												</div>
-											</div>										</div>
+											</div>										
+										</div>
 										<div class="col-sm-4">
-											<div class="thumbnail" id="">
-												<img data-src="holder.js/200x200" alt=""/>
+											<div class="thumbnail  animated fadeIn" id="">
+												<img src="images/keszsegek/egyeb.png" alt="Folyamatos fejlődés, kíváncsiság, kreativitás, megbízhatóság, precizitás."/ id="oskills" data-recog="oskills" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
+												<h4>Egyéb készségek</h4><hr/>
 													<ul>
-														<li>dd</li>
-														<li>ddd</li>
+														<li>Folyamatos fejlődés</li>
+														<li>Kreativitás</li>
+														<li>Kíváncsiság</li>
+														<li>Megbízhatóság</li>
+														<li>Precizitás</li>
 													</ul>
 												</div>
-											</div>										</div>
+											</div>										
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div><!-- End of Nyelvtudás -->						
+					</div><!-- End of Skills -->						
 
 				</div>
 			</div>
@@ -335,6 +376,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -365,7 +407,6 @@
         <script src="../bower_components/holderjs/holder.js"></script>
 		<!-- noUiSlider -->
         <script src="../bower_components/nouislider/jquery.nouislider.min.js"></script>
-
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->

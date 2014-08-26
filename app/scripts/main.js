@@ -1,4 +1,4 @@
-console.log('\'Allo \'Allo!');
+//console.log('\'Allo \'Allo!');
 
 $(document).ready(function (){
 
@@ -21,6 +21,17 @@ function animateWork(){
 
 }
 
+function animateSkills(element){
+	var selected = "#"+element+""
+
+	$(selected).addClass("animated rubberBand");
+	
+	$(selected).bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){ 
+		if($(selected).hasClass("animated rubberBand")){
+			$(selected).removeClass("animated rubberBand");
+		}
+	});
+}
 /*
 $(".szakma").on("classChange", function(){
 	$("#work-zms").addClass("wobble");
