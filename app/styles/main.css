@@ -8,7 +8,7 @@
 /* Space out content a bit */
 body {
     padding-top: 20px;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 	min-width:480px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -37,15 +37,28 @@ body {
 }
 
 
-.container{background-color:white;}
+.container{background-color:white;margin-bottom:20px;}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
-.footer {
+.pg-footer {
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.nav-pills > li.active > a{
+	background-color:#9dc02e;	-webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+.nav-pills > li.active > a:hover{
+	background-color:#9dc02e;	-webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
 /* Custom page header */
 .header {
     border-bottom: 1px solid #e5e5e5;
@@ -60,7 +73,7 @@ body {
 }
 
 /* Custom page footer */
-.footer {
+.pg-footer {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
@@ -99,7 +112,7 @@ body {
     /* Remove the padding we set earlier */
     .header,
     .marketing,
-    .footer {
+    .pg-footer {
         padding-left: 0;
         padding-right: 0;
     }
@@ -354,3 +367,18 @@ hr{margin:0px;padding:0px;}
 #collapse4 .thumbnail img{padding:5px;}
 #collapse4 .thumbnail ul{padding-left:20px;padding-top:5px;}
 #collapse4 .thumbnail h4{font-size:17px;font-weight:bold;}
+
+.grad-bg{
+	height:800px;
+	width:100%;
+	z-index:-300;
+	position:relative;
+	margin-top:-800px;
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.99) 99%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(99%,rgba(0,0,0,0.99)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.99) 99%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.99) 99%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.99) 99%,rgba(0,0,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.99) 99%,rgba(0,0,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}

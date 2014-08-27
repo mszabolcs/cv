@@ -2,7 +2,14 @@
 var hatter = new Array( "0", "0" , "0" , "0");
 
 $(document).ready(function (){
-
+	// When the DOM is ready, run this function
+	$(document).ready(function() {
+	//Set the carousel options
+	$('#quote-carousel').carousel({
+		pause: true,
+		interval: 4000,
+	});
+	});
 });
 
 function openSection(element){
@@ -13,21 +20,29 @@ function openSection(element){
 		switch(element) {
 			case "szakma":
 				$("body").css('background-color','#0054a6');
+				$(".nav-pills > li.active > a").css('background-color','#0054a6');
+				$(".nav-pills > li.active > a:hover").css('background-color','#0054a6');
 				hatter[0] = 1;
 				//console.log(hatter);
 			break;
 			case "tanulmanyok":
 				$("body").css('background-color','#00903c');
+				$(".nav-pills > li.active > a").css('background-color','#00903c');
+				$(".nav-pills > li.active > a:hover").css('background-color','#00903c');
 				hatter[1] = 1;
 				//console.log(hatter);
 			break;
 			case "nyelvtudas":
 				$("body").css('background-color','#f26522');
+				$(".nav-pills > li.active > a").css('background-color','#f26522');
+				$(".nav-pills > li.active > a:hover").css('background-color','#f26522');
 				hatter[2] = 1;
 				//console.log(hatter);
 			break;
 			case "skills":
 				$("body").css('background-color','#92278f');
+				$(".nav-pills > li.active > a").css('background-color','#92278f');
+				$(".nav-pills > li.active > a:hover").css('background-color','#92278f');
 				hatter[3] = 1;
 				//console.log(hatter);
 			break;
@@ -59,23 +74,35 @@ function openSection(element){
 
 		if(hatter[0]==0 && hatter[1]==0 && hatter[2]==0 && hatter[3]==0){
 			//console.log("minden be van zárva")
+			$(".nav-pills > li.active > a").css('background-color','#9dc02e');
+			$(".nav-pills > li.active > a:hover").css('background-color','#9dc02e');
 			$("body").addClass("background1");
 		}
 		else{
 			if(hatter[3]==1){
 				$("body").css('background-color','#92278f');
+				$(".nav-pills > li.active > a").css('background-color','#92278f');
+				$(".nav-pills > li.active > a:hover").css('background-color','#92278f');
+
 			}
 			else{
 				if(hatter[2]==1){
 					$("body").css('background-color','#f26522');
+					$(".nav-pills > li.active > a").css('background-color','#f26522');
+					$(".nav-pills > li.active > a:hover").css('background-color','#f26522');
 				}
 				else{
 					if(hatter[1]==1){
 						$("body").css('background-color','#00903c');
+						$(".nav-pills > li.active > a").css('background-color','#00903c');
+						$(".nav-pills > li.active > a:hover").css('background-color','#00903c');
+
 					}
 					else{
 						if(hatter[0]==1){
 							$("body").css('background-color','#0054a6');
+							$(".nav-pills > li.active > a").css('background-color','#0054a6');
+							$(".nav-pills > li.active > a:hover").css('background-color','#0054a6');
 						}
 					}
 				}
