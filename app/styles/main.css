@@ -10,8 +10,34 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 	min-width:480px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	-webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+.background1 {
+	background-image: url('../images/bg/bg1.jpg');
+}
+.background2 {
+    background-color: #0054a6;
+}
+.background3 {
+    background-color: #00903c;
+}
+.background4 {
+    background-color: #f26522;
+}
+.background5{
+    background-color: #92278f;
 }
 
+
+.container{background-color:white;}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

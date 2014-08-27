@@ -1,0 +1,17 @@
+@font-face {font-family: impreg;src: url('../fonts/impreg.ttf');}
+label{font-size:18px;}
+.form-horizontal .control-label{padding-top:0;padding-right:0px;margin-top:-2px;}
+.form-horizontal .control-label{
+	text-align:center;
+	/*background-color:#F2D982;
+	border-bottom:1px solid grey;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;*/
+}
+.modal-header{background-color:aliceblue;background-image:url("../images/form/bg.png");background-repeat:repeat;}
+.modal-footer{background-image:url("../images/form/bg.png");background-repeat:repeat;}
+.modal-title{font-family:impreg;font-size:70px;}
