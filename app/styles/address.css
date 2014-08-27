@@ -1,0 +1,31 @@
+address{
+	overflow:hidden;
+	border:1px solid #eee;
+	border-right:1px solid #eee;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.nav-tabs{border-bottom:0;}
+#flip-hr{
+	background-color:blue;
+	height:1px;
+	width:100%;
+	-ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+	margin-left:40%;
+}
+#flip-hr2{
+	background-color:blue;
+	height:1px;
+	width:100%;
+	-ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+	margin-left:41%;
+}
+#oldalszam{margin-right:4px;margin-bottom:4px;}

@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/form.css">
         <link rel="stylesheet" href="styles/quotes.css">
+        <link rel="stylesheet" href="styles/address.css">
         <link rel="stylesheet" href="styles/footer.css">
         <link rel="stylesheet" href="styles/MyNouislider.css">
         <!-- endbuild -->
@@ -34,9 +35,24 @@
                     <li class="active"><a href="#"><img src="images/icons/mini-lang-hun.png" alt="hungarian/magyar" /> HUN</a></li>
                     <li><a href="#"><img src="images/icons/mini-lang-eng.png" alt="english/angol" /> ENG</a></li>
                 </ul>
-                <h3 class="text-muted">cv</h3>
+                <!--<h3 class="text-muted"></h3>-->
             </div>
-			
+			<!-- Who am I? -->
+				<div class="row row-me">
+					<div class="col-xs-4 col-xs-offset-1">
+						<div class="thumbnail animated fadeIn" id="thumb-me">
+							<img src="images/etc/profile-pic.png" alt="Molnár Szabolcs - Profil kép"/>
+							<div class="caption">
+								<h4>Molnár Szabolcs</h4><hr/>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<h1><strong>Ki is vagyok?</strong></h1>
+						<p class="lead">Ezen oldal célja, hogy vázlatosan bemutassa önéletrajzomat.</p>
+					</div>
+				</div>
+			<!-- End of Who am I?-->
 			<!-- Quote -->
 			<div class='row marketing'>
 				<div class='col-sm-12'>
@@ -46,7 +62,8 @@
 							<li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
 							<li data-target="#quote-carousel" data-slide-to="1"></li>
 						</ol>
-        
+						<hr/>
+						
 						<!-- Carousel Slides / Quotes -->
 						<div class="carousel-inner">
         
@@ -78,7 +95,7 @@
 									</div>
 								</blockquote>
 							</div>
-						</div>
+						</div><hr/>
         
 						<!-- Carousel Buttons Next/Prev -->
 						<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
@@ -127,8 +144,8 @@
 									</div>			
 							</div>
 							<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Bezárás</span></button>
-									<button type="submit" class="btn btn-warning">Üzenet elküldése <span class="glyphicon glyphicon-ok"></span></button>
+									<button type="button" class="btn btn-default gombok" data-dismiss="modal">Bezárás</span></button>
+									<button type="submit" class="btn btn-warning gombok">Üzenet elküldése <span class="glyphicon glyphicon-ok"></span></button>
 								</form><!-- End of Contact Form -->
 							</div>
 						</div>
@@ -139,11 +156,11 @@
             <div class="row marketing">
                 <div class="col-lg-6">
                     <h4>Üdvözlöm!</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
+                    <p class="justify">Kérem tekintse meg az alábbi pontokat, ahol bővebb információkat olvashat a szakmai tapasztalatimról, az iskoláimról, nyelvtudásomról és készségeimről. </p>
                 </div>
                 <div class="col-lg-6">
-                    <h4>Üdvözlöm!</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
+                    <h4>Szeretne egy hasonló weboldalt?</h4>
+                    <p>Az oldal egy másik célja, hogy bemutassa gyakorlati tudásom. Ha szeretne egy hasonló honlapot, kérem keressen fel az elérhetőségeim valamelyikén.</p>
                 </div>
             </div>
 			<!-- 2 -->
@@ -468,14 +485,17 @@
 			</div>
 			<!-- Contact -->
 			<div class="row marketing">
+				
 				<div class="col-xs-12">
-					<address>
-						
-						<strong>Molnár Szabolcs</strong><br>
-						<abbr title="Tartózkodási hely"><span class="glyphicon glyphicon-home">
-						Budapest/Miskolc ,HU<br/>
-						<abbr title="Telefon"><span class="glyphicon glyphicon-earphone"></span></abbr> (30) 456-7890<br/>
-						<abbr title="E-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> <a href="mailto:#"> molnar.szabolcs.privat@example.com</a>
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="active"><a href="" class="no-link">Elérhetőségek</a></li>
+				</ul>
+					<address>	<hr/><br/><hr/><hr/>				
+						&nbsp <span class="glyphicon glyphicon-user"></span> &nbsp| <strong>Molnár Szabolcs</strong><hr/>
+						&nbsp <abbr title="Tartózkodási hely"><span class="glyphicon glyphicon-home"></abbr> &nbsp| Budapest / Miskolc<hr/>
+						<!--<abbr title="Telefon"><span class="glyphicon glyphicon-earphone"></span></abbr> (30)111-2222<br/>-->
+						&nbsp <abbr title="E-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> &nbsp| <a href="mailto:#">molnar.szabolcs.privat@example.com</a><hr/><hr/><br/><hr id="flip-hr"/><hr id="flip-hr2"/>
+					<span class="badge pull-right" id="oldalszam">1</span>
 					</address>
 				</div>
 				<hr/>
