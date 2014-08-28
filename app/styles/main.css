@@ -66,6 +66,15 @@ textarea { resize:vertical; }
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
 }
+#lang-menu > li > a{
+	border-radius:0px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
 /* Custom page header */
 .header {
     border-bottom: 1px solid #e5e5e5;
@@ -137,6 +146,7 @@ textarea { resize:vertical; }
     .jumbotron {
         border-bottom: 0;
     }
+	#side-magic{display:block;}
 }
 
 /* self */

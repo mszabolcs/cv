@@ -28,12 +28,34 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+		<div id="side-magic" style="padding:2px;">
+			<div style="height:20px;width:20px;margin-top:8px;margin-left:5px;">
+				<a href="#" class="no-link" data-toggle="collapse" data-target="#collapseOne" data-recog="szakma" onClick="openSection(this.getAttribute('data-recog'));" >
+					<img src="images/icons/work.svg" style="height:20px; width:20px" alt="work icon" data-toggle="tooltip" data-placement="right" title="Szakmai tapasztalatok">
+				</a>
+			</div>
+			<div style="height:20px;width:20px;margin-top:8px;margin-left:5px;">
+				<a href="#" class="no-link" data-toggle="collapse" data-target="#collapseTwo" data-recog="tanulmanyok" onClick="openSection(this.getAttribute('data-recog'));" >
+					<img src="images/icons/study.svg" style="height:20px; width:20px" alt="study icon" data-toggle="tooltip" data-placement="right" title="Tanulmányok">
+				</a>
+			</div>
+			<div style="height:20px;width:20px;margin-top:8px;margin-left:5px;">
+				<a href="#" class="no-link" data-toggle="collapse" data-target="#collapse3" data-recog="nyelvtudas" onClick="openSection(this.getAttribute('data-recog'));" >
+					<img src="images/icons/languages.svg" style="height:20px; width:20px" alt="languages icon" data-toggle="tooltip" data-placement="right" title="Nyelvtudás">
+				</a>
+			</div>
+			<div style="height:20px;width:20px;margin-top:8px;margin-left:5px;">
+				<a href="#" class="no-link" data-toggle="collapse" data-target="#collapse4" data-recog="skills" onClick="openSection(this.getAttribute('data-recog'));" >
+					<img src="images/icons/skills.svg" style="height:20px; width:20px" alt="skils icon" data-toggle="tooltip" data-placement="right" title="Készségek">
+				</a>
+			</div>
+		</div>
+		
         <div class="container">
             <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#"><img src="images/icons/mini-lang-hun.png" alt="hungarian/magyar" /> HUN</a></li>
-                    <li><a href="#"><img src="images/icons/mini-lang-eng.png" alt="english/angol" /> ENG</a></li>
+                <ul class="nav nav-pills pull-right" id="lang-menu">
+                    <li id="lang-hu" class="active" onClick="changeLang('hu',this.id);" ><a href="#"><img src="images/icons/mini-lang-hun.png" alt="hungarian/magyar" /> HUN</a></li>
+                    <li id="lang-eng" onClick="changeLang('eng',this.id);" ><a href="#"><img src="images/icons/mini-lang-eng.png" alt="english/angol" /> ENG</a></li>
                 </ul>
                 <!--<h3 class="text-muted"></h3>-->
             </div>
@@ -43,13 +65,13 @@
 						<div class="thumbnail animated fadeIn" id="thumb-me">
 							<img src="images/etc/profile-pic.png" alt="Molnár Szabolcs - Profil kép"/>
 							<div class="caption">
-								<h4>Molnár Szabolcs</h4><hr/>
+								<h4 id="header-myname">Molnár Szabolcs</h4><hr/>
 							</div>
 						</div>
 					</div>
 					<div class="col-xs-6">
-						<h1><strong>Ki is vagyok?</strong></h1>
-						<p class="lead">Ezen oldal célja, hogy vázlatosan bemutassa önéletrajzomat.</p>
+						<h1 id="header-me"><strong>Ki is vagyok?</strong></h1>
+						<p id="header-lead" class="lead">Ezen oldal célja, hogy vázlatosan bemutassa önéletrajzomat.</p>
 					</div>
 				</div>
 			<!-- End of Who am I?-->
@@ -167,9 +189,9 @@
 			<div class="row marketing">
                 <div class="col-xs-12">
 					<!-- Szakmai tapasztalat -->
-					<div class="panel-group" id="accordion1" data-recog="szakma" onClick="openSection(this.getAttribute('data-recog'));">
+					<div class="panel-group" id="accordion1">
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne" data-recog="szakma" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading kek">
 									<div class="header-icon pull-left">
 										<img src="images/icons/work.svg" style="height:32px; width:32px" alt="work icon">
@@ -221,9 +243,9 @@
 					</div><!-- End of Szakmai tapasztalat -->
 					
 					<!-- Tanulmányok -->
-					<div class="panel-group" id="accordion2" data-recog="tanulmanyok" onClick="openSection(this.getAttribute('data-recog'));">
+					<div class="panel-group" id="accordion2" >
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+							<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" data-recog="tanulmanyok" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading zold">
 									<div class="header-icon pull-left">
 										<img src="images/icons/study.svg" style="height:32px; width:32px" alt="study icon">
@@ -288,9 +310,9 @@
 					</div><!-- End of Szakmai tapasztalat -->
 					
 					<!-- Nyelvtudás -->
-					<div class="panel-group" id="accordion3" data-recog="nyelvtudas" onClick="openSection(this.getAttribute('data-recog'));">
+					<div class="panel-group" id="accordion3">
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion3" href="#collapse3">
+							<a data-toggle="collapse" data-parent="#accordion3" href="#collapse3"  data-recog="nyelvtudas" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading narancs">
 									<div class="header-icon pull-left">
 										<img src="images/icons/languages.svg" style="height:32px; width:32px" alt="languages icon">
@@ -359,9 +381,9 @@
 					</div><!-- End of Nyelvtudás -->
 						
 					<!-- Készségek -->
-					<div class="panel-group" id="accordion4" data-recog="skills" onClick="openSection(this.getAttribute('data-recog'));">					
+					<div class="panel-group" id="accordion4">					
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
+							<a data-toggle="collapse" data-parent="#accordion4" href="#collapse4"  data-recog="skills" onClick="openSection(this.getAttribute('data-recog'));">
 								<div class="panel-heading lila">
 									<div class="header-icon pull-left">
 										<img src="images/icons/skills.svg" style="height:32px; width:32px" alt="skills icon">
@@ -545,10 +567,13 @@
         <script src="../bower_components/holderjs/holder.js"></script>
 		<!-- noUiSlider -->
         <script src="../bower_components/nouislider/jquery.nouislider.min.js"></script>
+		<!-- JQuery Cookie -->
+        <script src="../bower_components/jquery-cookie/jquery.cookie.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
+		<script src="scripts/ajax/lang.js"></script>
 		<script src="scripts/MyNouislider.js"></script>
         <!-- endbuild -->
 </body>

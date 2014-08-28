@@ -1,0 +1,20 @@
+{
+	"eng":[
+		{
+			"title":"Szabolcs Molnár | CV | Skills, Languages, Education, Work Experiences",
+			"myname":"Szabolcs Molnár"	,
+			"lang":"en",
+			"header_me":"Who I am?",
+			"header_lead":"The purpose of this page is to give an overview of my CV."
+		}
+	],
+	"hu":[
+		{
+			"title":"Molnár Szabolcs | Önéletrajz | Képességeim, nyelvtudásom, tapasztalataim, iskoláim.",
+			"myname":"Molnár Szabolcs",
+			"lang":"hu",
+			"header_me":"Ki is vagyok?",
+			"header_lead":"Ezen oldal célja, hogy vázlatosan bemutassa önéletrajzomat."			
+		}
+	]
+}
