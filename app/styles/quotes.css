@@ -58,10 +58,7 @@
 }
 
 .item blockquote p:before {
-    content: "\f10d";
-    font-family: 'Fontawesome';
-    float: left;
-    margin-right: 10px;
+
 }
 
 
