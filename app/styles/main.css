@@ -36,7 +36,6 @@ body {
     background-color: #92278f;
 }
 
-textarea { resize:vertical; }
 
 .container{
 	background-color:white;
@@ -421,3 +420,10 @@ hr{margin:0px;padding:0px;}
 	box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.2);
 }
 .justify{text-align:justify;}
+
+/* modal */
+.modal-body{
+	padding-bottom:0;
+
+}
+.margin55{margin-top:5px;margin-bottom:5px;}

@@ -12,7 +12,7 @@
          "(reCAPTCHA: " . $resp->error . ")");
   } else {
     // Your code here to handle a successful verification
-	echo("Success<br/> Köszönjük kedves ".$_POST['name']);
+	echo("Success<br/> Köszönjük kedves ");
   }
 
 ?>

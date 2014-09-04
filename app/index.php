@@ -160,29 +160,74 @@
 							</div>
 							<div class="modal-body">
 								<!-- Contact Form -->
-								<form class="form-horizontal" role="form">
+								<form class="form-horizontal" id="contact-form" role="form" method="post" action="includes/validate.php">
 									<div class="form-group">
-										<label for="inputName" class="col-sm-1 control-label"><span class="glyphicon glyphicon-user"></span></label>
+										<label for="inputName" class="col-sm-1 control-label"><span class="glyphicon glyphicon-user" title="Név" data-toggle="tooltip" data-placement="left" title="Név"></span></label>
 										<div class="col-sm-11">
-											<input type="text" class="form-control" id="inputName" placeholder="Ide írja nevét.">
+											<input type="text" class="form-control" id="inputName" placeholder="Ide írja nevét." name="name" onBlur="ajaxValidate(this.name,this.value);">
+											<div id="name-validate"></div>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputEmail" class="col-sm-1 control-label"><span class="glyphicon glyphicon-envelope"></span></label>
+										<label for="inputEmail" class="col-sm-1 control-label"><span class="glyphicon glyphicon-envelope" title="E-mail" data-toggle="tooltip" data-placement="left" title="E-mail"></span></label>
 										<div class="col-sm-11">
-											<input type="email" class="form-control" id="inputEmail" placeholder="Ide írja e-mail címét.">
+											<input type="email" class="form-control" id="inputEmail" placeholder="Ide írja e-mail címét." name="email" onBlur="ajaxValidate(this.name,this.value);">
+												<div id="email-validate"></div>
 										</div>
 									</div>
-									<div class="form-group">
-										<label for="InputMessage" class="col-sm-1 control-label"><span class="glyphicon glyphicon-pencil"></span></label>
+									<div class="form-group form-notrequired">
+										<label for="inputPhone" class="col-sm-1 control-label"><span class="glyphicon glyphicon-phone white" title="Telefon" data-toggle="tooltip" data-placement="left" title="Telefon"></span></label>
 										<div class="col-sm-11">
-											<textarea class="form-control" rows="5" placeholder="Ide írja üzenetét." id="InputMessage" name="message"></textarea>
+											<input type="text" class="form-control" id="inputPhone" placeholder="Ha kívánja, adja meg telefonszámát."  name="phone" onBlur="ajaxValidate(this.name,this.value);">
+											<span class="help-block help-form">Nem kötelező.</span>
+												<div id="phone-validate"></div>
+										</div>
+										<label for="inputHeard" class="col-sm-1 control-label"><i class="fa fa-question white" title="Kérdés" data-toggle="tooltip" data-placement="left" title="Kérdés"></i></label>
+										<div class="col-sm-11">
+										<select class="form-control" id="inputOption" name="question" onChange="ajaxValidate(this.name,this.value);">
+											<optgroup label="Hogyan talált ide?">
+												<option value="" disabled selected>Hogyan talált ide?</option>
+												<option value="0">-</option>
+												<option value="1">LinkedIn</option>
+												<option value="2">ZMS Pro-Ker Kft.</option>
+												<option value="3">Google keresés</option>
+												<option value="4">Ismerős, barát</option>
+												<option value="5">Egyéb</option>
+											</optgroup>
+										</select>
+										<span class="help-block help-form">Nem kötelező.</span>
+											<div id="question-validate"></div>
+										</div>
+									</div>									
+									<div class="form-group">
+										<label for="InputMessage" class="col-sm-1 control-label"><span class="glyphicon glyphicon-pencil" title="Üzenet" data-toggle="tooltip" data-placement="left" title="Üzenet"></span></label>
+										<div class="col-sm-11">
+											<textarea class="form-control" rows="5" placeholder="Ide írja üzenetét." id="InputMessage" name="message" maxlength="1500" onKeyUp="textareaChars(this.value);" onBlur="ajaxValidate(this.name,this.value)"></textarea>
+
+												<div class="col-xs-2  remainingChars" id="remainingNumbers">1500</div>
+												<div class="col-xs-10 remainingChars" id="remainingChar">karakter maradt</div>
+												<div class="col-xs-12">	
+													<div id="message-validate"></div>
+												</div>
 											<span class="help-block">Bármilyen kérése, kérdése van, kérem írjon bizalommal.</span>
 										</div>
 									</div>
 									<div class="form-group">
-										<div class="col-sm-1"></div>
-										<div class="col-sm-11">---</div>
+										<div class="col-xs-12" id="captchaHolder">
+											<script type="text/javascript">
+												var RecaptchaOptions = {
+												theme : 'white'
+												};
+											</script>
+											<?php
+												require_once('functions/captcha/recaptchalib.php');
+												$publickey = "6LduRvkSAAAAAOxXLkJ7ZNMHdc1WGbkKwB004xFt"; // you got this from the signup page
+												echo recaptcha_get_html($publickey);
+											?>
+											<div id="recaptcha_response_field-validate"></div>
+										</div>
+										<div class="col-xs-12" id="ajx-loading" style="height:30px;display:table;text-align:center;"></div>										
+
 									</div>			
 							</div>
 							<div class="modal-footer">
@@ -533,10 +578,10 @@
 					<li class="active"><a href="" class="no-link">Elérhetőségek</a></li>
 				</ul>
 					<address>	<hr/><br/><hr/><hr/>				
-						&nbsp <span class="glyphicon glyphicon-user"></span> &nbsp| <strong>Molnár Szabolcs</strong><hr/>
-						&nbsp <abbr title="Tartózkodási hely"><span class="glyphicon glyphicon-home"></abbr> &nbsp| Budapest / Miskolc<hr/>
+						&nbsp; <span class="glyphicon glyphicon-user"></span> &nbsp;| <strong>Molnár Szabolcs</strong><hr/>
+						&nbsp; <abbr title="Tartózkodási hely"><span class="glyphicon glyphicon-home"></abbr> &nbsp;| Budapest / Miskolc<hr/>
 						<!--<abbr title="Telefon"><span class="glyphicon glyphicon-earphone"></span></abbr> (30)111-2222<br/>-->
-						&nbsp <abbr title="E-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> &nbsp| <a href="mailto:#">molnar.szabolcs.privat@example.com</a><hr/><hr/><br/><hr id="flip-hr"/><hr id="flip-hr2"/>
+						&nbsp; <abbr title="E-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> &nbsp;| <a href="mailto:#">molnar.szabolcs.privat@example.com</a><hr/><hr/><br/><hr id="flip-hr"/><hr id="flip-hr2"/>
 					<span class="badge pull-right" id="oldalszam">1</span>
 					</address>
 				</div>
@@ -550,7 +595,6 @@
 
         </div>
 		<div class="grad-bg"></div>
-		
 		
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -594,7 +638,9 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
 		<script src="scripts/ajax/lang.js"></script>
+		<script src="scripts/ajax/validate.js"></script>
 		<script src="scripts/MyNouislider.js"></script>
+		<script src="scripts/form.js"></script>
         <!-- endbuild -->
 </body>
 </html>

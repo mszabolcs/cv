@@ -24,6 +24,8 @@ $(document).ready(function (){
 //tooltips
 function toolTips(){
 	$('#side-magic img').tooltip();
+	$('.modal label span').tooltip();
+	$('.modal label i').tooltip();
 }
 
 //changeLangColor
