@@ -1,4 +1,7 @@
 <?php
+	//Lnag
+	if(!isset($_COOKIE['lang'])){setcookie("lang", "hu");$_COOKIE['lang'] = 'hu';}
+
 	require_once("includes/conn.php");
 
 	$sql = "SELECT author,quote,author_img FROM quotes";
@@ -74,8 +77,8 @@
         <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right" id="lang-menu">
-                    <li id="lang-hu" class="active" onClick="changeLang('hu',this.id);" ><a href="#"><img src="images/icons/mini-lang-hun.png" alt="hungarian/magyar" /> HUN</a></li>
-                    <li id="lang-eng" onClick="changeLang('eng',this.id);" ><a href="#"><img src="images/icons/mini-lang-eng.png" alt="english/angol" /> ENG</a></li>
+                    <li id="lang-hu"  <?php if($_COOKIE["lang"]=="hu"){echo("class='active'");}; ?>  onClick="changeLang('hu',this.id);" ><a href="#"><img src="images/icons/mini-lang-hun.png" alt="hungarian/magyar" /> HUN</a></li>
+                    <li id="lang-eng" <?php if($_COOKIE["lang"]=="eng"){echo("class='active'");}; ?>  onClick="changeLang('eng',this.id);" ><a href="#"><img src="images/icons/mini-lang-eng.png" alt="english/angol" /> ENG</a></li>
                 </ul>
                 <!--<h3 class="text-muted"></h3>-->
             </div>
@@ -147,9 +150,9 @@
 			</div><!-- End of Quote -->
 			
             <div class="jumbotron">
-                <h1>Kérdése van?</h1>
-                <p class="lead">Írjon bizalommal!</p>
-                <p><a class="btn btn-lg btn-success" href="#" data-toggle="modal" data-target="#myModal">Üzenet írása! <span class="glyphicon glyphicon-envelope"></span></a></p>
+                <h1 id="jumb-headline">Kérdése van?</h1>
+                <p class="lead" id="jumb-p">Írjon bizalommal!</p>
+                <p><a class="btn btn-lg btn-success" href="#" data-toggle="modal" data-target="#myModal"><span id="jumb-message-btn">Üzenet írása!</span> <span class="glyphicon glyphicon-envelope"></span></a></p>
 				<!-- Modal -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -162,30 +165,30 @@
 								<!-- Contact Form -->
 								<form class="form-horizontal" id="contact-form" role="form" method="post" action="includes/validate.php">
 									<div class="form-group">
-										<label for="inputName" class="col-sm-1 control-label"><span class="glyphicon glyphicon-user" title="Név" data-toggle="tooltip" data-placement="left" title="Név"></span></label>
+										<label for="inputName" class="col-sm-1 control-label"><span class="glyphicon glyphicon-user" id="spn_inputName" data-toggle="tooltip" data-placement="left" title="Név"></span></label>
 										<div class="col-sm-11">
 											<input type="text" class="form-control" id="inputName" placeholder="Ide írja nevét." name="name" onBlur="ajaxValidate(this.name,this.value);">
 											<div id="name-validate"></div>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputEmail" class="col-sm-1 control-label"><span class="glyphicon glyphicon-envelope" title="E-mail" data-toggle="tooltip" data-placement="left" title="E-mail"></span></label>
+										<label for="inputEmail" class="col-sm-1 control-label"><span class="glyphicon glyphicon-envelope" id="spn_inputEmail" data-toggle="tooltip" data-placement="left" title="E-mail"></span></label>
 										<div class="col-sm-11">
 											<input type="email" class="form-control" id="inputEmail" placeholder="Ide írja e-mail címét." name="email" onBlur="ajaxValidate(this.name,this.value);">
 												<div id="email-validate"></div>
 										</div>
 									</div>
 									<div class="form-group form-notrequired">
-										<label for="inputPhone" class="col-sm-1 control-label"><span class="glyphicon glyphicon-phone white" title="Telefon" data-toggle="tooltip" data-placement="left" title="Telefon"></span></label>
+										<label for="inputPhone" class="col-sm-1 control-label"><span class="glyphicon glyphicon-phone white" id="spn_inputPhone" data-toggle="tooltip" data-placement="left" title="Telefon"></span></label>
 										<div class="col-sm-11">
 											<input type="text" class="form-control" id="inputPhone" placeholder="Ha kívánja, adja meg telefonszámát."  name="phone" onBlur="ajaxValidate(this.name,this.value);">
-											<span class="help-block help-form">Nem kötelező.</span>
+											<span class="help-block help-form helperOptional">Nem kötelező.</span>
 												<div id="phone-validate"></div>
 										</div>
-										<label for="inputHeard" class="col-sm-1 control-label"><i class="fa fa-question white" title="Kérdés" data-toggle="tooltip" data-placement="left" title="Kérdés"></i></label>
+										<label for="inputHeard" class="col-sm-1 control-label"><i class="fa fa-question white" id="spn_inputOption" data-toggle="tooltip" data-placement="left" title="Kérdés"></i></label>
 										<div class="col-sm-11">
 										<select class="form-control" id="inputOption" name="question" onChange="ajaxValidate(this.name,this.value);">
-											<optgroup label="Hogyan talált ide?">
+											<!--<optgroup label="Hogyan talált ide?">-->
 												<option value="" disabled selected>Hogyan talált ide?</option>
 												<option value="0">-</option>
 												<option value="1">LinkedIn</option>
@@ -193,23 +196,22 @@
 												<option value="3">Google keresés</option>
 												<option value="4">Ismerős, barát</option>
 												<option value="5">Egyéb</option>
-											</optgroup>
+											<!--</optgroup>-->
 										</select>
-										<span class="help-block help-form">Nem kötelező.</span>
+										<span class="help-block help-form helperOptional">Nem kötelező.</span>
 											<div id="question-validate"></div>
 										</div>
 									</div>									
 									<div class="form-group">
-										<label for="InputMessage" class="col-sm-1 control-label"><span class="glyphicon glyphicon-pencil" title="Üzenet" data-toggle="tooltip" data-placement="left" title="Üzenet"></span></label>
+										<label for="InputMessage" class="col-sm-1 control-label"><span class="glyphicon glyphicon-pencil" id="spn_inputMessage" data-toggle="tooltip" data-placement="left" title="Üzenet"></span></label>
 										<div class="col-sm-11">
 											<textarea class="form-control" rows="5" placeholder="Ide írja üzenetét." id="InputMessage" name="message" maxlength="1500" onKeyUp="textareaChars(this.value);" onBlur="ajaxValidate(this.name,this.value)"></textarea>
-
 												<div class="col-xs-2  remainingChars" id="remainingNumbers">1500</div>
 												<div class="col-xs-10 remainingChars" id="remainingChar">karakter maradt</div>
 												<div class="col-xs-12">	
 													<div id="message-validate"></div>
 												</div>
-											<span class="help-block">Bármilyen kérése, kérdése van, kérem írjon bizalommal.</span>
+											<span class="help-block" id="help-bottom">Bármilyen kérése, kérdése van, kérem írjon bizalommal.</span>
 										</div>
 									</div>
 									<div class="form-group">
@@ -231,8 +233,8 @@
 									</div>			
 							</div>
 							<div class="modal-footer">
-									<button type="button" class="btn btn-default gombok" data-dismiss="modal">Bezárás</span></button>
-									<button type="submit" class="btn btn-warning gombok">Üzenet elküldése <span class="glyphicon glyphicon-ok"></span></button>
+									<button type="button" class="btn btn-default gombok" data-dismiss="modal"><span id="btn_close">Bezárás</span></button>
+									<button type="submit" class="btn btn-warning gombok"><span id="btn_send">Üzenet elküldése</span> <span class="glyphicon glyphicon-ok"></span></button>
 								</form><!-- End of Contact Form -->
 							</div>
 						</div>
@@ -242,12 +244,12 @@
 
             <div class="row marketing">
                 <div class="col-lg-6">
-                    <h4>Üdvözlöm!</h4>
-                    <p class="justify">Kérem tekintse meg az alábbi pontokat, ahol bővebb információkat olvashat a szakmai tapasztalatimról, az iskoláimról, nyelvtudásomról és készségeimről. </p>
+                    <h4 id="content_1_header">Üdvözlöm!</h4>
+                    <p class="justify" id="content_1_cont">Kérem tekintse meg az alábbi pontokat, ahol bővebb információkat olvashat a szakmai tapasztalatimról, az iskoláimról, nyelvtudásomról és készségeimről. </p>
                 </div>
                 <div class="col-lg-6">
-                    <h4>Szeretne egy hasonló weboldalt?</h4>
-                    <p>Az oldal egy másik célja, hogy bemutassa gyakorlati tudásom. Ha szeretne egy hasonló honlapot, kérem keressen fel az elérhetőségeim valamelyikén.</p>
+                    <h4 id="content_2_header">Szeretne egy hasonló weboldalt?</h4>
+                    <p class="justify" id="content_2_cont">Az oldal egy másik célja, hogy bemutassa gyakorlati tudásom. Ha szeretne egy hasonló honlapot, kérem keressen fel az elérhetőségeim valamelyikén.</p>
                 </div>
             </div>
 			<!-- 2 -->
@@ -262,7 +264,7 @@
 										<img src="images/icons/work.svg" style="height:32px; width:32px" alt="work icon">
 									</div>
 									<h4 class="panel-title focimek">
-										Szakmai tapasztalat:<span class="glyphicon glyphicon-chevron-down pull-right szakma"></span>
+										<span id="szakmai_h4">Szakmai tapasztalat</span>:<span class="glyphicon glyphicon-chevron-down pull-right szakma"></span>
 									</h4>
 								</div>
 							</a>
@@ -273,13 +275,13 @@
 											<div class="thumbnail animated bounceInLeft" id="work-hdagency">
 												<img src="images/szakmai/hdagencykft.png" alt="HD Marketing - Online marketing kereső ügynökség - SEO, PPC, Analytics">
 												<div class="caption w-same-h">
-													<h3><strong>HD Agency Kft.</strong></h3>
-													<h4><small>2014.márc. - 2014.máj.</small></h4><hr/>
+													<h3><strong id="hd_agency_name">HD Agency Kft.</strong></h3>
+													<h4><small id="hd_time">2014.márc. - 2014.máj.</small></h4><hr/>
 													<ul class="m-t-space">
-														<li>Google Adwords kampánykezelés</li>
-														<li>Google Analytics riporting és elemzés</li>
-														<li>Kulcsszó kutatás és elemzés</li>
-														<li>SEO</li>
+														<li id="hd_w_1">Google Adwords kampánykezelés</li>
+														<li id="hd_w_2">Google Analytics riporting és elemzés</li>
+														<li id="hd_w_3">Kulcsszó kutatás és elemzés</li>
+														<li id="hd_w_4">SEO</li>
 													</ul>
 												</div>
 											</div>
@@ -288,15 +290,15 @@
 											<div class="thumbnail animated bounceInRight" id="work-zms">
 												<img src="images/szakmai/zmsprokerkft.png" alt="ZMS Pro-Ker Kft. - Kiváló ár-érték arányú kézzel készült fa bútorok.">
 												<div class="caption w-same-h">
-													<h3><strong>ZMS Pro-Ker Kft.</strong></h3>
-													<h4><small>2005 - jelenleg is</small></h4><hr/>													
+													<h3><strong id="zms_name">ZMS Pro-Ker Kft.</strong></h3>
+													<h4><small id="zms_time">2005 - jelenleg is</small></h4><hr/>													
 													<ul class="m-t-space">
-														<li>Bútor kiskereskedelem</li>
-														<li>Weblap tervezése, kivitelezése és optimalizálása</li>
-														<li>Online Marketing</li>
-														<li>Termék fotózás</li>
-														<li>Arculat megtervezése</li>
-														<li>Ad-hoc feladatok</li>
+														<li id="zms_w_1">Bútor kiskereskedelem</li>
+														<li id="zms_w_2">Weblap tervezése, kivitelezése és optimalizálása</li>
+														<li id="zms_w_3">Online Marketing</li>
+														<li id="zms_w_4">Termék fotózás</li>
+														<li id="zms_w_5">Arculat megtervezése</li>
+														<li id="zms_w_6">Ad-hoc feladatok</li>
 													</ul>
 												</div>
 											</div>
@@ -316,7 +318,7 @@
 										<img src="images/icons/study.svg" style="height:32px; width:32px" alt="study icon">
 									</div>
 									<h4 class="panel-title focimek">
-										Tanulmányok:<span class="glyphicon glyphicon-chevron-down pull-right tanulmanyok"></span>
+										<span id="tanulmanyok_h4">Tanulmányok</span>:<span class="glyphicon glyphicon-chevron-down pull-right tanulmanyok"></span>
 									</h4>
 								</div>
 							</a>
@@ -335,7 +337,7 @@
 													<div class = "kossuth"></div>	
 												</div>
 												<div class="caption">
-													<h3><strong><a href="">Kossuth Lajos Általános Iskola</a></strong></h3>
+													<h3><strong id="edu_1_k">Kossuth Lajos Általános Iskola</strong></h3>
 													<hr/><h4><small>Sajószentpéter</small></h4>
 													<hr/><p class="center margin-padding"><b>1998-2006</b></p>
 												</div>
@@ -346,11 +348,12 @@
 												<div class="one">
 													<div class = "foldes">
 													</div>	
-												</div>												<div class="caption">
-													<h3><strong><a href="">Földes Ferenc Gimnázium</a></strong></h3>
+												</div>
+												<div class="caption">
+													<h3><strong id="edu_2_f">Földes Ferenc Gimnázium</strong></h3>
 													<hr/><h4><small>Miskolc</small></h4>													
 													<hr/><p class="center margin-padding"><b>2006-2010</b></p>
-													<hr/><p  class="center margin-padding szak">Informatika szak</p>
+													<hr/><p  class="center margin-padding szak" id="edu_2_f_szak">Informatika szak</p>
 												</div>
 											</div>
 										</div>
@@ -359,11 +362,12 @@
 												<div class="one">
 													<div class = "corvinus">
 													</div>	
-												</div>												<div class="caption">
-													<h3><strong><a href="">Budapesti Corvinus Egyetem</a></strong></h3>
+												</div>												
+												<div class="caption">
+													<h3><strong id="edu_3_c">Budapesti Corvinus Egyetem</strong></h3>
 													<hr/><h4><small>Budapest</small></h4>													
 													<hr/><p class="center margin-padding"><b>2010-2014</b></p>
-													<hr/><p  class="center margin-padding szak">Gazdaságinformatikus BSC képzés</p>
+													<hr/><p  class="center margin-padding szak" id="edu_3_c_szak">Gazdaságinformatikus BSC képzés</p>
 												</div>
 											</div>
 										</div>
@@ -383,7 +387,7 @@
 										<img src="images/icons/languages.svg" style="height:32px; width:32px" alt="languages icon">
 									</div>
 									<h4 class="panel-title focimek">
-										Nyelvtudás:<span class="glyphicon glyphicon-chevron-down pull-right nyelvtudas"></span>
+										<span id="nyelvtudas_h4">Nyelvtudás</span>:<span class="glyphicon glyphicon-chevron-down pull-right nyelvtudas"></span>
 									</h4>
 								</div>
 							</a>
@@ -399,7 +403,7 @@
 											</div>
 										</div>
 										<div class="col-xs-8 nyelv-leiras">
-											<h3>Angol C1 szint</h3>
+											<h3 id="eng_level">Angol C1 szint</h3>
 											<hr/>
 											<small><b>(1998-2010)</b></small><hr/>
 											<ul>
@@ -419,7 +423,7 @@
 											</div>
 										</div>
 										<div class="col-xs-8 nyelv-leiras">
-											<h3>Spanyol - kezdő</h3>
+											<h3 id="esp_level">Spanyol - kezdő</h3>
 											<hr/>
 											<small><b>(2013-2014)</b></small><hr/>
 										</div>
@@ -434,7 +438,7 @@
 											</div>
 										</div>
 										<div class="col-xs-8 nyelv-leiras">
-											<h3>Német - kezdő</h3>
+											<h3 id="ger_level">Német - kezdő</h3>
 											<hr/>
 											<small><b>(2006-2010)</b></small><hr/>
 										</div>
@@ -455,7 +459,7 @@
 									</div>
 
 									<h4 class="panel-title focimek">
-										Készségek:<span class="glyphicon glyphicon-chevron-down pull-right skills"></span>
+										<span id="skills_h4">Készségek</span>:<span class="glyphicon glyphicon-chevron-down pull-right skills"></span>
 									</h4>
 								</div>
 							</a>
@@ -483,8 +487,8 @@
 												<div class="caption">
 												<h4>MS Visual Studio C#</h4><hr/>
 													<ul>
-														<li>C# programnyelv ismerete</li>
-														<li>Alkalmazások készítése</li>
+														<li id="skills_2_1">C# programnyelv ismerete</li>
+														<li id="skills_2_2">Alkalmazások készítése</li>
 													</ul>												
 												</div>
 											</div>										
@@ -495,11 +499,11 @@
 												<div class="caption">
 												<h4>Adobe Photoshop</h4><hr/>
 													<ul>
-														<li>Grafikák tervezése</li>
-														<li>Weboldalak tervezése</li>
-														<li>Logo tervezés</li>
-														<li>Arculattervezés</li>
-														<li>Reklámanyagok, plakátok</li>
+														<li id="skills_3_1">Grafikák tervezése</li>
+														<li id="skills_3_2">Weboldalak tervezése</li>
+														<li id="skills_3_3">Logo tervezés</li>
+														<li id="skills_3_4">Arculattervezés</li>
+														<li id="skills_3_5">Reklámanyagok, plakátok</li>
 													</ul>
 												</div>
 											</div>										
@@ -508,7 +512,7 @@
 											<div class="thumbnail  animated fadeIn" id="">
 												<img src="images/keszsegek/webfejlesztes.png" alt="Webfejlesztés, Front-end, Back-end, Full-stack, JavaScript, HTML5, CSS3, PHP, AJAX"/ id="webdev" data-recog="webdev" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
-												<h4>Webfejlesztés</h4><hr/>
+												<h4 id="skills_4_title">Webfejlesztés</h4><hr/>
 													<ul>
 														<li>HTML/HTML5</li>
 														<li>CSS/CSS3</li>
@@ -522,9 +526,9 @@
 											<div class="thumbnail  animated fadeIn" id="">
 												<img src="images/keszsegek/adatbaziskezeles.png" alt="Adatbázis kezelés, SQL, Access, Oracle"/ id="dbs" data-recog="dbs" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
-												<h4>Adatbázis kezelés</h4><hr/>
+												<h4 id="skills_5_title">Adatbázis kezelés</h4><hr/>
 													<ul>
-														<li>SQL nyelv ismerete</li>
+														<li id="skills_5_1">SQL nyelv ismerete</li>
 														<li>MySQL/phpMyAdmin</li>
 														<li>Oracle SQL developer</li>
 														<li>Access/MS SQL Server</li>
@@ -551,13 +555,13 @@
 											<div class="thumbnail  animated fadeIn" id="">
 												<img src="images/keszsegek/egyeb.png" alt="Folyamatos fejlődés, kíváncsiság, kreativitás, megbízhatóság, precizitás."/ id="oskills" data-recog="oskills" onMouseover="animateSkills(this.getAttribute('data-recog'));">
 												<div class="caption">
-												<h4>Egyéb készségek</h4><hr/>
+												<h4 id="skills_6_title">Egyéb készségek</h4><hr/>
 													<ul>
-														<li>Folyamatos fejlődés</li>
-														<li>Kreativitás</li>
-														<li>Kíváncsiság</li>
-														<li>Megbízhatóság</li>
-														<li>Precizitás</li>
+														<li id="skills_6_1">Folyamatos fejlődés</li>
+														<li id="skills_6_2">Kreativitás</li>
+														<li id="skills_6_3">Kíváncsiság</li>
+														<li id="skills_6_4">Megbízhatóság</li>
+														<li id="skills_6_5">Precizitás</li>
 													</ul>
 												</div>
 											</div>										
@@ -575,10 +579,10 @@
 				
 				<div class="col-xs-12">
 				<ul class="nav nav-tabs" role="tablist">
-					<li class="active"><a href="" class="no-link">Elérhetőségek</a></li>
+					<li class="active"><a href="" class="no-link" id="contact_header">Elérhetőségek</a></li>
 				</ul>
 					<address>	<hr/><br/><hr/><hr/>				
-						&nbsp; <span class="glyphicon glyphicon-user"></span> &nbsp;| <strong>Molnár Szabolcs</strong><hr/>
+						&nbsp; <span class="glyphicon glyphicon-user"></span> &nbsp;| <strong id="con_name">Molnár Szabolcs</strong><hr/>
 						&nbsp; <abbr title="Tartózkodási hely"><span class="glyphicon glyphicon-home"></abbr> &nbsp;| Budapest / Miskolc<hr/>
 						<!--<abbr title="Telefon"><span class="glyphicon glyphicon-earphone"></span></abbr> (30)111-2222<br/>-->
 						&nbsp; <abbr title="E-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> &nbsp;| <a href="mailto:#">molnar.szabolcs.privat@example.com</a><hr/><hr/><br/><hr id="flip-hr"/><hr id="flip-hr2"/>
@@ -590,11 +594,13 @@
 			<!-- End of Contact -->
 			<!-- Footer -->
             <div class="footer pg-footer">
-                <p>Készítette: <strong>Molnár Szabolcs</strong> &copy;2014</p>
+                <p id="footer_origin">Készítette: <strong>Molnár Szabolcs</strong> &copy;2014</p>
             </div>
 
         </div>
+		
 		<div class="grad-bg"></div>
+
 		
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -611,7 +617,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-43587838-2');ga('send','pageview');
         </script>
 
         <!-- build:js scripts/plugins.js -->
@@ -642,5 +648,6 @@
 		<script src="scripts/MyNouislider.js"></script>
 		<script src="scripts/form.js"></script>
         <!-- endbuild -->
+		
 </body>
 </html>

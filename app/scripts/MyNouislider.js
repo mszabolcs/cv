@@ -7,8 +7,10 @@ var customToolTip = $.Link({
 
 		// The tooltip HTML is 'this', so additional
 		// markup can be inserted here.
+		var ev = getCookie("lang");
+		if(ev=="eng"){ev="Year";}else{ev="Év";}
 		$(this).html(
-			'<strong>Év: </strong>' +
+			'<strong>'+ev+': </strong>' +
 			'<span>' + parseInt(value) + '</span>'
 		);
 	}
@@ -63,4 +65,16 @@ function changeSchools(){
 		if(!$(".foldes-thumb").hasClass("bounceOut")){$(".foldes-thumb").addClass("bounceOut");}
 	}
 
+}
+
+//Cookie finder
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+    }
+    return "";
 }

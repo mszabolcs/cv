@@ -27,6 +27,7 @@ $("#contact-form").submit(function( event ){
 		var recaptcha_challenge_field = $('#recaptcha_challenge_field').val();
 		var variables =[name,email,phone,question,message,recaptcha_response_field,recaptcha_challenge_field];
 		//alert(variables);
+	
 		
 		//ajax kérés küldése
 		setTimeout(function() {
@@ -40,17 +41,29 @@ $("#contact-form").submit(function( event ){
 					if(j.msg=="ok"){
 						var cel = $("#recaptcha_response_field-validate");
 						cel.html("");
-						$("#ajx-loading").html("<div class='alert alert-success animated fadeIn margin-padding margin55' role='alert' id='message-alert'><span class='glyphicon glyphicon-ok'></span>&nbsp; Az üzenetet sikeresen elküldtük!</div>	");
+						var lang = getCookie("lang");
+						var outputmsg="";
+						if(lang=="eng"){outputmsg="Success!"}else{outputmsg="Az üzenetet sikeresen elküldtük!"}
+						$("#ajx-loading").html("<div class='alert alert-success animated fadeIn margin-padding margin55' role='alert' id='message-alert'><span class='glyphicon glyphicon-ok'></span>&nbsp; "+outputmsg+"</div>	");
 					}else{
 						var cel = $("#recaptcha_response_field-validate");
-						cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; A beírt kód hibás. Kérem írja be a fentebb látható biztonsági kódot majd próbálja újra elküldeni.</div>");
-						$("#ajx-loading").html("<div class='alert alert-danger animated fadeIn margin-padding margin55' role='alert' id='message-alert-error'><span class='glyphicon glyphicon-remove'></span>&nbsp; Az üzenetet nem sikerült elküldeni!</div>");
+						var lang = getCookie("lang");
+						var outputmsg="";
+						if(lang=="eng"){outputmsg="The text You entered is incorrect. Please type in the security text above and try again!"}else{outputmsg="A beírt kód hibás. Kérem írja be a fentebb látható biztonsági kódot majd próbálja újra elküldeni."}
+						cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
+						var lang = getCookie("lang");
+						var outputmsg="";						
+						if(lang=="eng"){outputmsg="There was an error. We could not send the message!"}else{outputmsg="Az üzenetet nem sikerült elküldeni!"}
+						$("#ajx-loading").html("<div class='alert alert-danger animated fadeIn margin-padding margin55' role='alert' id='message-alert-error'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
 					}
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) { 
-					$("#ajx-loading").html("<div class='alert alert-danger animated fadeIn margin-padding margin55' role='alert' id='message-alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Az üzenetet nem sikerült elküldeni!</div>");
-					alert("error");
-					console.log("Status: " + textStatus); alert("Error: " + errorThrown); 
+						var lang = getCookie("lang");
+						var outputmsg="";						
+						if(lang=="eng"){outputmsg="There was an error. We could not send the message!"}else{outputmsg="Az üzenetet nem sikerült elküldeni!"}
+						$("#ajx-loading").html("<div class='alert alert-danger animated fadeIn margin-padding margin55' role='alert' id='message-alert-error'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
+					//alert("error");
+					//console.log("Status: " + textStatus); alert("Error: " + errorThrown); 
 				} 
 			});
 		}, 2000);
@@ -76,7 +89,10 @@ $("#contact-form").submit(function( event ){
 		$("#ajx-loading").html("");
 		if(name == "" || name == 'null'){
 			var cel = $("#name-validate");
-			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Kérem adja meg a nevét.</div>");
+			var lang = getCookie("lang");
+			var outputmsg="";						
+			if(lang=="eng"){outputmsg="Please type in Your name."}else{outputmsg="Kérem adja meg a nevét."}			
+			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
 		}
 		else{
 			var cel = $("#name-validate");
@@ -84,7 +100,10 @@ $("#contact-form").submit(function( event ){
 		}
 		if(email == "" || email == 'null'){
 			var cel = $("#email-validate");
-			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Kérem érvényes e-mail címet adjon meg!</div>");
+			var lang = getCookie("lang");
+			var outputmsg="";						
+			if(lang=="eng"){outputmsg="Please type in a valid e-mail address."}else{outputmsg="Kérem érvényes e-mail címet adjon meg!"}						
+			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
 		}
 		else{
 			var cel = $("#email-validate");
@@ -92,7 +111,10 @@ $("#contact-form").submit(function( event ){
 		}
 		if(message =="" || message =='null'){
 			var cel = $("#message-validate");
-			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Üresen hagyta az üzenet mezőt.</div>");
+			var lang = getCookie("lang");
+			var outputmsg="";						
+			if(lang=="eng"){outputmsg="You left the message field empty."}else{outputmsg="Üresen hagyta az üzenet mezőt."}						
+			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
 		}
 		else{
 			var cel = $("#message-validate");
@@ -100,7 +122,10 @@ $("#contact-form").submit(function( event ){
 		}
 		if(recaptcha_response_field =="" || recaptcha_response_field =='null'){
 			var cel = $("#recaptcha_response_field-validate");
-			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Kérem írja be a fentebb látható biztonsági kódot majd próbálja újra elküldeni.</div>");
+			var lang = getCookie("lang");
+			var outputmsg="";						
+			if(lang=="eng"){outputmsg="Please type in the security code above and try to send the message again."}else{outputmsg="Kérem írja be a fentebb látható biztonsági kódot majd próbálja újra elküldeni."}						
+			cel.html("<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; "+outputmsg+"</div>");
 		}
 		else{
 			var cel = $("#recaptcha_response_field-validate");
@@ -109,3 +134,16 @@ $("#contact-form").submit(function( event ){
 	}
 	}, 1000);
 });
+
+
+//Cookie finder
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+    }
+    return "";
+}

@@ -10,19 +10,23 @@
 	
 	function validate($action,$variable){
 		$response = array();
+		$outputmsg = "";
 		
 		switch ($action){
 		case "email":
 			if(filter_var($variable, FILTER_VALIDATE_EMAIL)){
-				$response = array('msg' => "<div class='alert alert-success form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-ok'></span>&nbsp; A megadott e-mail cím helyes!</div>");
+				if($_COOKIE["lang"]=="eng"){$outputmsg="The e-mail address is valid!";}else{$outputmsg="A megadott e-mail cím helyes!";}
+				$response = array('msg' => "<div class='alert alert-success form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-ok'></span>&nbsp; ".$outputmsg."</div>");
 			}else{
-				$response = array('msg' => "<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Kérem érvényes e-mail címet adjon meg!</div>");
+				if($_COOKIE["lang"]=="eng"){$outputmsg="Please type in a valid e-mail address.";}else{$outputmsg="Kérem érvényes e-mail címet adjon meg!";}
+				$response = array('msg' => "<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; ".$outputmsg."</div>");
 			}
 			return $response;
 			break;
 		case "phone":
 			if($variable != ""){
-				$response = array('msg' => "<div class='alert alert-info form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp; Köszönöm, hogy ezt a mezőt is kitöltötte!</div>");
+				if($_COOKIE["lang"]=="eng"){$outputmsg="Thank You for providing this information!";}else{$outputmsg="Köszönöm, hogy ezt a mezőt is kitöltötte!";}			
+				$response = array('msg' => "<div class='alert alert-info form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp; ".$outputmsg."</div>");
 			}
 			else{
 				$response = array('msg' => "");
@@ -31,7 +35,8 @@
 			break;
 		case "question":
 			if($variable!=""){
-				$response = array('msg' => "<div class='alert alert-info form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp; Köszönöm, hogy válaszolt a kérdésre!</div>");
+				if($_COOKIE["lang"]=="eng"){$outputmsg="Thank You for answering this question!";}else{$outputmsg="Köszönöm, hogy válaszolt a kérdésre!";}						
+				$response = array('msg' => "<div class='alert alert-info form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp; ".$outputmsg."</div>");
 			}
 			else{
 				$response = array('msg' => "");
@@ -40,7 +45,8 @@
 			break;
 		case "name":
 			if($variable==""){
-				$response = array('msg' => "<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Kérem adja meg a nevét!</div>");
+				if($_COOKIE["lang"]=="eng"){$outputmsg="Please enter Your name.	";}else{$outputmsg="Kérem adja meg a nevét!";}						
+				$response = array('msg' => "<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; ".$outputmsg."</div>");
 			}
 			else{
 				$response = array('msg' => "");
@@ -49,7 +55,8 @@
 			break;
 		case "message":
 			if($variable==""){
-				$response = array('msg' => "<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; Üresen hagyta az üzenet mezőt.</div>");
+				if($_COOKIE["lang"]=="eng"){$outputmsg="You left the message field empty.";}else{$outputmsg="Üresen hagyta az üzenet mezőt.";}									
+				$response = array('msg' => "<div class='alert alert-danger form-alerts animated fadeIn' role='alert'><span class='glyphicon glyphicon-remove'></span>&nbsp; ".$outputmsg."</div>");
 			}
 			else{
 				$response = array('msg' => "");

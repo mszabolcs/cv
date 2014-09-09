@@ -3,7 +3,6 @@
 ?>
 
 <?php
-
 	$response = array();
 	$myArray = array();
 	$myArray = $_POST['data'];
@@ -24,8 +23,6 @@
 	
 	//2. Field validations
 
-
-	
 	//Captcha validation	
 	require_once('../functions/captcha/recaptchalib.php');
 	$privatekey = "6LduRvkSAAAAAIx1_j1vRidExAny9PyIHzuNWmYX";
@@ -35,12 +32,6 @@
 									$recaptcha_response_field);
 	if (!$resp->is_valid){
 		// What happens when the CAPTCHA was entered incorrectly
-		
-		//Insert message
-		$sql = "INSERT INTO messages (name, email, phone, question, message) VALUES ('$name','$email','$phone','$question','$message')";
-		//echo($sql);
-		if(!$result = $db->query($sql)){die('There was an error running the query [' . $db->error . ']');}
-
 		$response = array('msg' => "nok" );
 		echo json_encode($response);
 		//die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." ."(reCAPTCHA: " . $resp->error . ")");
@@ -48,6 +39,47 @@
 		// Your code here to handle a successful verification
 		$response = array('msg' => "ok");
 		echo json_encode($response);
+		//Insert message
+		$sql = "INSERT INTO messages (name, email, phone, question, message) VALUES ('$name','$email','$phone','$question','$message')";
+		//echo($sql);
+		if(!$result = $db->query($sql)){die('There was an error running the query [' . $db->error . ']');}
+		//E-mail elküldése
+		$to  = 'zmsproker@gmail.com';
+		// subject
+		$subject = 'Önéletrajz megkeresés: '.htmlspecialchars_decode($name).'(-tól/től)';
+		// message
+		$emessage = '
+			<html>
+				<head>
+					<title>Megkeresés az önéletrajz oldalról</title>
+				</head>
+			<body>
+				<h1>$name megkeresése:</h1>
+				<hr/>
+				<p>Innen talált rám: '.htmlspecialchars_decode($question).'</p>
+				<table>
+					<tr>
+						<th>E-mail cím:</th><th>Telefonszám:</th>
+					</tr>
+					<tr>
+						<td> '.htmlspecialchars_decode($email).'</td><td> '.htmlspecialchars_decode($phone).'</td>
+					</tr>
+				</table>
+				<h2>Az üzenet:</h2>
+				<p> '.htmlspecialchars_decode($message).'</p>
+			</body>
+		</html>
+		';
+		// To send HTML mail, the Content-type header must be set
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'To: Molnár Szabolcs <zmsproker@gmail.com>' . "\r\n";
+		$headers .= 'From: $namme <$email>' . "\r\n";
+
+		// Mail it
+		mail($to, $subject, $emessage, $headers);
   }
 
 ?>

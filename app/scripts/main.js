@@ -19,7 +19,24 @@ $(document).ready(function (){
 	
 	positionMagic();
 	toolTips();
+	checkLang();
 });
+
+
+function checkLang(){
+	//lang
+	if($("#lang-hu").hasClass("active"))
+	{
+		changeLang('hu',this.id);
+	}
+	else
+	{
+		changeLang('eng',this.id);
+	}
+}
+
+
+
 
 //tooltips
 function toolTips(){

@@ -4,7 +4,10 @@
     color: #000;
     padding: 0.2em 0;
 }
-
+#header-lead{
+	font-size:20px;
+}
+iframe[src="about:blank"]{display:none;}
 /* Space out content a bit */
 body {
     padding-top: 20px;
